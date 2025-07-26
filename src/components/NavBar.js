@@ -54,7 +54,7 @@ export const NavBar = () => {
           <span className="navbar-text d-flex align-items-center gap-3">
             <div className="social-icon d-flex gap-2">
               <a
-                href="https://www.linkedin.com/in/your-linkedin"
+                href="https://www.linkedin.com/in/jancris-paul-oporto-32624a31b/"
                 target="_blank"
                 rel="noreferrer"
               >
