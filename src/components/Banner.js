@@ -11,7 +11,7 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "Data Analyst", "Business Analyst", "Web Developer" ];
+  const toRotate = [ "Data Analyst", "", "Web Developer" ];
   const period = 5000;
 
   useEffect(() => {
@@ -56,9 +56,9 @@ export const Banner = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Ada`} <span className="wrap">{text}</span></h1>
-                  <p>I am a Data and Business Analyst that specializes in data mining, Visualization. I will think of a text to put in because i am not sure what to write.</p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                <h1>{`Hi! I'm Jancris,`} <span className="wrap">{text}</span></h1>
+                  <p>I am a Data Analyst that specializes in Data Cleaning, Visualization, and Analysis. I'm Also Web Developer specializing in building responsive, user-focused websites and applications using modern JavaScript frameworks and clean backend architecture.</p>
+                  <button onClick={() => window.location.href = "oportojancrispaulavila25@email.com"}>Let’s Connect <ArrowRightCircle size={25} /></button>
                   </div>}
             </TrackVisibility>
           </Col>

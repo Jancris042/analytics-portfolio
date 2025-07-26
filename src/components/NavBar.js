@@ -1,57 +1,79 @@
-
-import { useEffect, useState } from "react";
-import {Navbar, Container, Nav } from "react-bootstrap";
-// import logo from '../assets/img/logo.svg';
-import navIcon1 from '../assets/img/nav-icon1.svg';
-import navIcon2 from '../assets/img/nav-icon2.svg';
-import navIcon3 from '../assets/img/nav-icon3.svg';
+import { useState, useEffect } from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import newlogo from "../assets/img/newlogo.png";
+import linkedIcon from "../assets/img/linked.svg";
+import githubIcon from "../assets/img/github.svg";
 
 export const NavBar = () => {
-    const [activeLink, setActiveLink] = useState ('home');
-    const [scrolled, setScrolled] = useState(false);
+  const [activeLink, setActiveLink] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
 
-    useEffect(() => {
-        const onScroll = () => {
-            if (window.scrollY > 50) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            
-            }
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-        }
-        window.addEventListener("scroll", onScroll);
+  const onUpdateActiveLink = (value) => setActiveLink(value);
 
-        return () => window.removeEventListener("scroll", onScroll);
-    }, [])
-
-    const  onUpdateActiveLink = (value) => {
-        setActiveLink(value);
-    }
-    return (
-        <Navbar expand="lg" className={scrolled ? "scrolled": ""}>
-        <Container>
-          <Navbar.Brand href="#home"></Navbar.Brand>
-          <img src={''} alt="Logo" />
-          <Navbar.Toggle aria-controls="basic-navbar-nav">
-            <span className="navbar-toggler-icon"></span> </Navbar.Toggle>
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home" className={activeLink === 'home' ? 'active nabar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-              <Nav.Link href="#link"className={activeLink === 'skills' ? 'active nabar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
-              <Nav.Link href="#link" className={activeLink === 'projects' ? 'active nabar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
-            </Nav>
-            <span className="navbar-text">
-                <div className="social-icon">
-                    <a href='#'><img src={navIcon1} alt="" /></a>
-                    <a href='#'><img src={navIcon2} alt="" /></a>
-                    <a href='#'><img src={navIcon3} alt="" /></a>
-                </div>
-                <button className="vvd" onClick={() => console.log('connect')}><span>Lets Connect</span></button>
-            </span>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
-    )
-}
+  return (
+    <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
+      <Container>
+        <Navbar.Brand href="#home">
+          <img src={newlogo} alt="Logo" style={{ width: "120px" }} />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav">
+          <span className="navbar-toggler-icon" />
+        </Navbar.Toggle>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link
+              href="#home"
+              className={activeLink === "home" ? "active navbar-link" : "navbar-link"}
+              onClick={() => onUpdateActiveLink("home")}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              href="#skills"
+              className={activeLink === "skills" ? "active navbar-link" : "navbar-link"}
+              onClick={() => onUpdateActiveLink("skills")}
+            >
+              Skills
+            </Nav.Link>
+            <Nav.Link
+              href="#MyProjects"
+              className={activeLink === "projects" ? "active navbar-link" : "navbar-link"}
+              onClick={() => onUpdateActiveLink("projects")}
+            >
+              Projects
+            </Nav.Link>
+          </Nav>
+          <span className="navbar-text d-flex align-items-center gap-3">
+            <div className="social-icon d-flex gap-2">
+              <a
+                href="https://www.linkedin.com/in/your-linkedin"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src={linkedIcon} alt="LinkedIn" />
+              </a>
+              <a
+                href="https://github.com/Jancris042"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src={githubIcon} alt="GitHub" />
+              </a>
+            </div>
+            <a href="#connect">
+              <button className="vvd"><span>Let’s Connect</span></button>
+            </a>
+          </span>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};

@@ -31,16 +31,16 @@ const Contact = () => {
   
       emailjs
         .send(
-          'service_oggz234',
-          'template_oc3n7n7',
+          'service_00lfx4n',
+          'template_kgj1ok6',
           {
             from_name: form.name,
-            to_name: "Adanna Eleje",
+            to_name: "Jancris Paul Oporto",
             from_email: form.email,
-            to_email: "aydeeleje@gmail.com",
+            to_email: "oportojancrispaulavila25@gmail.com",
             message: form.message,
           },
-          'DyaLJmEaMG9mT4czR'
+          'LD0eD8p-O3F5hsn1H'
         )
         .then(
           () => {
